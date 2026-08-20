@@ -78,12 +78,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Giant Typographic Wordmark */}
-        <div className="w-full text-center mt-12 select-none pointer-events-none translate-y-4">
-          <h2 className="text-[13vw] font-bold tracking-[-0.04em] text-[#171717]/[0.02] uppercase leading-none font-sans">
-            REALTY CHAMBER
-          </h2>
-        </div>
       </div>
     </footer>
   )

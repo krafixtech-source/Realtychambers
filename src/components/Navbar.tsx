@@ -3,11 +3,14 @@
 import { useEffect, useState } from 'react'
 import { TransitionLink as Link } from './PageTransition'
 import { Menu, X, Landmark } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,8 +41,8 @@ export default function Navbar() {
     { name: 'Journal', href: '/blog' },
   ]
 
-  const activeColorClass = isScrolled ? 'text-[#171717]' : 'text-white'
-  const activeLinkClass = isScrolled 
+  const activeColorClass = (isScrolled || !isHome) ? 'text-[#171717]' : 'text-white'
+  const activeLinkClass = (isScrolled || !isHome)
     ? 'text-[#171717]/70 hover:text-[#171717]' 
     : 'text-white/70 hover:text-white'
 
@@ -59,14 +62,14 @@ export default function Navbar() {
               src="/logo.png"
               alt="Realty Chamber Logo"
               className={`w-8 h-8 object-contain rounded-full border transition-all duration-300 ${
-                isScrolled ? 'border-black/10' : 'border-white/15'
+                (isScrolled || !isHome) ? 'border-black/10' : 'border-white/15'
               }`}
             />
             <div className="flex flex-col">
               <span className="font-sans font-bold text-sm tracking-[0.25em] uppercase">
                 REALTY CHAMBER
               </span>
-              <span className={`text-[8px] tracking-[0.1em] uppercase font-light transition-colors ${isScrolled ? 'text-neutral-500' : 'text-white/50'}`}>
+              <span className={`text-[8px] tracking-[0.1em] uppercase font-light transition-colors ${(isScrolled || !isHome) ? 'text-neutral-500' : 'text-white/50'}`}>
                 Jaipur
               </span>
             </div>
@@ -74,8 +77,8 @@ export default function Navbar() {
 
           {/* Center: Glassmorphism Blur Capsule Menu */}
           <div 
-            className={`hidden md:flex items-center px-6 py-2.5 rounded-full border transition-all duration-500 shadow-md ${
-              isScrolled 
+            className={`hidden lg:flex items-center px-6 py-2.5 rounded-full border transition-all duration-500 shadow-md ${
+              (isScrolled || !isHome)
                 ? 'bg-black/5 backdrop-blur-md border-black/10' 
                 : 'bg-white/10 backdrop-blur-md border-white/15'
             }`}
@@ -88,20 +91,20 @@ export default function Navbar() {
                   className={`text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 relative group ${activeLinkClass}`}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] transition-all duration-300 group-hover:w-4 ${isScrolled ? 'bg-[#171717]' : 'bg-white'}`} />
+                  <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] transition-all duration-300 group-hover:w-4 ${(isScrolled || !isHome) ? 'bg-[#171717]' : 'bg-white'}`} />
                 </Link>
               ))}
             </div>
           </div>
 
           {/* Right Side: Free Consultation pill button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <a
               href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20would%20like%20to%20book%20a%20free%20consultation%20regarding%20property%20in%20Jaipur."
               target="_blank"
               rel="noopener noreferrer"
               className={`font-sans font-semibold px-6 py-2.5 rounded-full text-[12px] tracking-[0.05em] uppercase transition-all duration-300 ${
-                isScrolled 
+                (isScrolled || !isHome)
                   ? 'bg-transparent text-[#171717] border border-[#171717]/30 hover:bg-[#171717]/5 shadow-none' 
                   : 'bg-white text-black hover:bg-neutral-200 shadow-md'
               }`}
@@ -111,11 +114,11 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Icon */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`focus:outline-none p-2 rounded-full border transition-colors ${
-                isScrolled 
+                (isScrolled || !isHome)
                   ? 'text-[#171717] border-[rgba(23,23,23,0.08)] bg-white/40' 
                   : 'text-white border-white/10 bg-[#171717]/40'
               }`}
@@ -130,7 +133,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`fixed inset-0 bg-[#0B0B0B] z-40 transition-transform duration-700 ease-in-out md:hidden flex flex-col justify-between p-8 pt-28 ${
+        className={`fixed inset-0 bg-[#0B0B0B] z-40 transition-transform duration-700 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-28 ${
           mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >

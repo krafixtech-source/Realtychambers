@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -9,11 +9,14 @@ export default function CustomCursor() {
   const mouse = useRef({ x: -100, y: -100 })
   const trail = useRef({ x: -100, y: -100 })
   const isHovered = useRef(false)
+  const [isTouch, setIsTouch] = useState(true) // Default to true on initial render to prevent hydration mismatch/flicker
 
   useEffect(() => {
     // Check if device is touch-enabled
-    const isTouch = window.matchMedia('(pointer: coarse)').matches
-    if (isTouch) {
+    const touchMatched = window.matchMedia('(pointer: coarse)').matches
+    setIsTouch(touchMatched)
+    
+    if (touchMatched) {
       document.body.classList.remove('custom-cursor-active')
       return
     }
@@ -161,6 +164,8 @@ export default function CustomCursor() {
       })
     }
   }, [])
+
+  if (isTouch) return null
 
   return (
     <>

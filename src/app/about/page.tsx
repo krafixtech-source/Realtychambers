@@ -20,7 +20,7 @@ export default function About() {
         </div>
 
         {/* Big Editorial Image Spread */}
-        <div className="relative w-full aspect-[21/9] overflow-hidden bg-[#171717]">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[#171717]">
           <Image
             src="/images/human_scale.png"
             alt="Realty Chamber Jaipur Studio about page"

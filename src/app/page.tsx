@@ -22,7 +22,10 @@ export default function Home() {
   const [hoveredJournal, setHoveredJournal] = useState<number | null>(null)
   const [journalMousePos, setJournalMousePos] = useState({ x: 0, y: 0 })
 
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+
   useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches)
     // Reset scroll trigger
     ScrollTrigger.refresh()
 
@@ -106,7 +109,7 @@ export default function Home() {
       if (horizSec && horizTrack) {
         let mm = gsap.matchMedia()
 
-        mm.add("(min-width: 768px)", () => {
+        mm.add("(min-width: 1024px)", () => {
           const getPinWidth = () => horizTrack.scrollWidth - window.innerWidth
           gsap.to(horizTrack, {
             x: () => -getPinWidth(),
@@ -503,19 +506,19 @@ export default function Home() {
       </section>
 
       {/* 4. Horizontal Showcase Gallery */}
-      <section className="horizontal-sec relative w-full h-auto md:h-screen overflow-visible md:overflow-hidden bg-[#0B0B0B] flex flex-col md:flex-row md:items-center py-24 md:py-0">
-        <div className="absolute top-12 left-6 md:left-12 z-20 flex flex-col gap-1">
+      <section className="horizontal-sec relative w-full h-auto lg:h-screen overflow-visible lg:overflow-hidden bg-[#0B0B0B] flex flex-col lg:flex-row lg:items-center py-24 lg:py-0">
+        <div className="absolute top-12 left-6 lg:left-12 z-20 flex flex-col gap-1">
           {/* <span className="text-[11px] uppercase tracking-widest text-[#F3F1EB]/50">03 — PORTFOLIO RUN</span> */}
-          <h2 className="text-xl md:text-2xl font-sans font-light text-[#F3F1EB]">Horizontal Showcase</h2>
+          <h2 className="text-xl lg:text-2xl font-sans font-light text-[#F3F1EB]">Horizontal Showcase</h2>
         </div>
-        <div className="absolute top-12 right-6 md:right-12 z-20 hidden md:block">
+        <div className="absolute top-12 right-6 lg:right-12 z-20 hidden lg:block">
           <span className="text-[11px] uppercase tracking-widest text-[#F3F1EB]/50">DRAG OR SCROLL VERTICALLY →</span>
         </div>
 
         {/* Horizontal scroll track */}
-        <div className="horizontal-track flex flex-col md:flex-row md:flex-nowrap px-6 md:pl-12 md:pr-[30vw] gap-16 md:gap-12 items-start md:items-center w-full md:w-max h-auto md:h-full">
+        <div className="horizontal-track flex flex-col lg:flex-row lg:flex-nowrap px-6 lg:pl-12 lg:pr-[30vw] gap-16 lg:gap-12 items-start lg:items-center w-full lg:w-max h-auto lg:h-full">
           {horizontalProjects.map((proj) => (
-            <div key={proj.id} className="horizontal-panel w-full md:w-[45vw] md:flex-shrink-0 flex flex-col gap-6" data-cursor="VIEW">
+            <div key={proj.id} className="horizontal-panel w-full lg:w-[45vw] lg:flex-shrink-0 flex flex-col gap-6" data-cursor="VIEW">
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#171717]">
                 <Image
                   src={proj.img}
@@ -662,7 +665,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating Preview Image */}
-                {hoveredService === idx && (
+                {hoveredService === idx && !isTouchDevice && (
                   <div
                     className="absolute pointer-events-none z-20 w-[240px] aspect-[4/3] overflow-hidden border border-[#F3F1EB]/10 rounded shadow-2xl transition-all duration-150 ease-out"
                     style={{
@@ -825,7 +828,7 @@ export default function Home() {
                 <ArrowUpRight className="text-[#171717] group-hover:text-[#F3F1EB] mt-4 md:mt-0 transition-transform duration-300 group-hover:rotate-45 z-10" size={24} />
 
                 {/* Floating Preview Image */}
-                {hoveredJournal === idx && (
+                {hoveredJournal === idx && !isTouchDevice && (
                   <div
                     className="absolute pointer-events-none z-20 w-[240px] aspect-[4/5] overflow-hidden border border-[#F3F1EB]/10 rounded shadow-2xl transition-all duration-150 ease-out"
                     style={{
@@ -903,33 +906,33 @@ export default function Home() {
         </h2>
 
         {/* Block 1: REALTY */}
-        <div className="relative w-full flex justify-center">
-          <div className="relative overflow-hidden lg:h-[10vw] md:h-[14vw] h-[17.5vw]">
+        <div className="relative w-full flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0">
+          <div className="relative overflow-hidden lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px]">
             <div className="words-realty-roll flex flex-col will-change-transform">
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">REALTY</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">REALTY</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">REALTY</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">REALTY</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">REALTY</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">REALTY</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">REALTY</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">REALTY</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">REALTY</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">REALTY</h1>
             </div>
           </div>
-          <p className="absolute lg:top-[55%] md:top-[55%] top-[15%] left-[59.5%] lg:left-[51.5%] md:left-[51.5%] md:w-[170px] lg:w-[170px] w-[140px] text-[9px] md:text-[13px] lg:text-[13px] text-gray-500 leading-snug text-left transition-all duration-700 ease-out delay-200">
+          <p className="relative lg:absolute lg:top-[55%] lg:left-[51.5%] lg:w-[170px] w-full max-w-[280px] text-[11px] lg:text-[13px] text-gray-500 leading-snug text-center lg:text-left transition-all duration-700 ease-out delay-200 mt-2 lg:mt-0">
             Curating exceptional properties with a focus on long-term value, distinctive architecture and meaningful places.
           </p>
         </div>
 
         {/* Block 2: CHAMBER */}
-        <div className="relative w-full flex justify-center">
-          <div className="relative overflow-hidden lg:h-[10vw] md:h-[14vw] h-[17.5vw]">
+        <div className="relative w-full flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0">
+          <div className="relative overflow-hidden lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px]">
             <div className="words-chamber-roll flex flex-col will-change-transform">
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">CHAMBER</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">CHAMBER</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">CHAMBER</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">CHAMBER</h1>
-              <h1 className="lg:text-[15rem] md:text-[12vw] text-[5rem] font-light text-[#e5e5e5] leading-none lg:h-[10vw] md:h-[14vw] h-[17.5vw] select-none">CHAMBER</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">CHAMBER</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">CHAMBER</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">CHAMBER</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">CHAMBER</h1>
+              <h1 className="lg:text-[13vw] text-[13vw] font-light text-[#e5e5e5] leading-none lg:h-[11vw] h-[13vw] min-h-[60px] max-h-[160px] select-none">CHAMBER</h1>
             </div>
           </div>
-          <p className="absolute md:top-[60%] lg:top-[60%] top-[15%] left-[30%] md:w-[200px] lg:w-[200px] w-[150px] md:text-[13px] lg:text-[13px] text-[9px] text-gray-500 leading-snug text-left transition-all duration-700 ease-out delay-300">
+          <p className="relative lg:absolute lg:top-[60%] lg:left-[30%] lg:w-[200px] w-full max-w-[280px] text-[11px] lg:text-[13px] text-gray-500 leading-snug text-center lg:text-left transition-all duration-700 ease-out delay-300 mt-2 lg:mt-0">
             A private collection of distinctive residences, commercial spaces and opportunities selected for those who value more.
           </p>
         </div>

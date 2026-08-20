@@ -66,7 +66,7 @@ export default function ServicesHub() {
         </div>
 
         {/* Big visual banner */}
-        <div className="relative w-full aspect-[21/9] overflow-hidden bg-[#171717]">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[#171717]">
           <Image
             src="/images/project_restaurant.png"
             alt="Realty Chamber Jaipur services page banner"

@@ -88,6 +88,9 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
         <span style={{ fontSize: '11px', letterSpacing: '0.15em', fontWeight: 500, color: 'var(--text-gray)' }}>
           JAIPUR / INDIA
         </span>
+        <span style={{ fontSize: '11px', letterSpacing: '0.15em', fontWeight: 500, color: 'var(--text-gray)' }}>
+          {progress}%
+        </span>
       </div>
     </div>
   )
