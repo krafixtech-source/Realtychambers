@@ -30,7 +30,7 @@ export default function PurchaseProperty() {
             Acquiring real estate in Jaipur requires deep market intelligence. Realty Chamber offers custom purchase advice, sourcing verified off-market inventories and major developer launch projects, including Mahima Group, Vardhman, and Mangalam.
           </p>
           <p>
-            Whether you want an independent builder floor in Malviya Nagar, a luxury residence in C-Scheme, or agricultural land near Ajmer Road, we verify all title documents to ensure zero disputes and hassle-free registration.
+            Whether you require residential floors, commercial showrooms, industrial warehouses, or agricultural farmland, our consultancy team performs in-depth title due diligence to ensure zero disputes and hassle-free legal registration.
           </p>
 
           <h3 className="text-xl font-medium font-sans mt-4">Buyer Support Capabilities</h3>

@@ -5,77 +5,98 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { MessageSquare, Phone } from 'lucide-react'
 
-// Dummy properties collection matching Jaipur context
 const PROPERTIES_DATA = [
   {
     id: 1,
-    title: 'Casa Nera',
+    title: 'Luxury Residential Villas & Floors',
     category: 'residential',
-    type: 'Luxury Villa',
-    location: 'Malviya Nagar, Jaipur',
-    year: '2026',
-    price: 'On Request',
+    type: 'Residential Advisory & Sourcing',
+    location: 'Jaipur & Rajasthan',
+    year: 'Advisory',
+    price: 'Consultation on Request',
     image: '/images/hero_architecture.png',
   },
   {
     id: 2,
-    title: 'Monument House',
+    title: 'Bespoke Private Residences',
     category: 'residential',
-    type: 'Private Residence',
-    location: 'C-Scheme, Jaipur',
-    year: '2025',
-    price: 'On Request',
+    type: 'High-End Residential Sourcing',
+    location: 'Prime Residential Belts',
+    year: 'Advisory',
+    price: 'Consultation on Request',
     image: '/images/project_interior.png',
   },
   {
     id: 3,
-    title: 'Travertine Heights',
+    title: 'High-Yield Commercial Showrooms',
     category: 'commercial',
-    type: 'High-yield Showrooms',
-    location: 'Tonk Road, Jaipur',
-    year: '2026',
-    price: 'On Request',
+    type: 'Commercial Investment Advisory',
+    location: 'Key Commercial Corridors',
+    year: 'Advisory',
+    price: 'Consultation on Request',
     image: '/images/project_restaurant.png',
   },
   {
     id: 4,
-    title: 'Creative Agency Studio',
+    title: 'Corporate Office Spaces & IT Suites',
     category: 'commercial',
-    type: 'Corporate Offices',
-    location: 'Mansarovar, Jaipur',
-    year: '2025',
-    price: 'On Request',
+    type: 'Commercial Leasing & Purchase',
+    location: 'Business Districts, Rajasthan',
+    year: 'Advisory',
+    price: 'Consultation on Request',
     image: '/images/project_office.png',
   },
   {
     id: 5,
-    title: 'Brutalist Concrete Villa',
+    title: 'Contemporary Boutique Residences',
     category: 'residential',
-    type: 'Boutique Residence',
-    location: 'Jagatpura, Jaipur',
-    year: '2025',
-    price: 'On Request',
+    type: 'Independent Villa & Floor Advisory',
+    location: 'Jaipur & Rajasthan',
+    year: 'Advisory',
+    price: 'Consultation on Request',
     image: '/images/project_concrete.png',
   },
   {
     id: 6,
-    title: 'Malviya Logistics Hub',
+    title: 'Modern PEB Industrial Warehouses',
     category: 'industrial',
-    type: 'Industrial Warehouse',
-    location: 'Vishwakarma Industrial Area, Jaipur',
-    year: '2026',
-    price: 'On Request',
-    image: '/images/architectural_detail.png',
+    type: 'Industrial Logistics Sourcing',
+    location: 'Industrial & RIICO Corridors',
+    year: 'Advisory',
+    price: 'Consultation on Request',
+    image: '/images/industrial_exterior.jpg',
   },
   {
     id: 7,
-    title: 'Heritage Eco-Farmhouse',
+    title: 'Heavy Industrial Bays & Factory Sheds',
+    category: 'industrial',
+    type: 'Manufacturing & Warehouse Advisory',
+    location: 'Industrial Growth Zones',
+    year: 'Advisory',
+    price: 'Consultation on Request',
+    image: '/images/industrial_interior.jpg',
+  },
+  {
+    id: 8,
+    title: 'Agricultural Land & Farmhouse Parcels',
     category: 'agricultural',
-    type: 'Organic Farm & Retreat',
-    location: 'Ajmer Road Outskirts, Jaipur',
-    year: '2026',
-    price: 'On Request',
-    image: '/images/human_scale.png',
+    type: 'Agri Land Aggregation & Advisory',
+    location: 'Rural & Agricultural Belts',
+    year: 'Advisory',
+    price: 'Consultation on Request',
+    image: '/images/agriculture_golden.jpg',
+    position: 'center 75%',
+  },
+  {
+    id: 9,
+    title: 'Lush Agri-Zone & Organic Farm Estates',
+    category: 'agricultural',
+    type: 'Farmhouse Land Sourcing & Clearances',
+    location: 'Rajasthan Agricultural Zones',
+    year: 'Advisory',
+    price: 'Consultation on Request',
+    image: '/images/agriculture_green.jpg',
+    position: 'center 85%',
   },
 ]
 
@@ -85,7 +106,7 @@ function PropertiesListContent() {
   const activeCategory = searchParams.get('category') || 'all'
 
   const categories = [
-    { label: 'All Projects', value: 'all' },
+    { label: 'All Sectors', value: 'all' },
     { label: 'Residential', value: 'residential' },
     { label: 'Commercial', value: 'commercial' },
     { label: 'Industrial', value: 'industrial' },
@@ -108,12 +129,12 @@ function PropertiesListContent() {
     <div className="max-w-[1600px] mx-auto flex flex-col gap-16 mt-12">
       {/* Header */}
       <div className="flex flex-col gap-6 max-w-[800px]">
-        <span className="section-label">03 — VERIFIED LISTINGS</span>
+        <span className="section-label">03 — ADVISORY & SOURCING PORTFOLIO</span>
         <h1 className="font-sans font-bold text-[#171717] uppercase leading-[0.95]" style={{ fontSize: 'clamp(2.5rem, 6.5vw, 6.5rem)' }}>
-          EXPLORE<br />PROPERTIES.
+          OUR ADVISORY<br />SECTORS.
         </h1>
         <p className="body-large text-gray-500 font-light mt-6">
-          A curated collection of verified residential, commercial, industrial, and agricultural properties in Jaipur and across Rajasthan. 100% transparent titles.
+          Specialized real estate consultancy and structured property sourcing across Residential, Commercial, Industrial, and Agricultural sectors in Jaipur and Rajasthan. We bridge clients and developers with 100% verified legal due diligence.
         </p>
       </div>
 
@@ -145,6 +166,7 @@ function PropertiesListContent() {
                   src={p.image}
                   alt={p.title}
                   fill
+                  style={{ objectPosition: p.position || 'center' }}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -189,7 +211,7 @@ function PropertiesListContent() {
           ))
         ) : (
           <div className="col-span-full py-16 text-center text-gray-400 font-light">
-            No properties found under this category. Contact us to submit a custom sourcing mandate.
+            No active mandates listed under this category. Contact our consultancy team to discuss customized property sourcing across Rajasthan.
           </div>
         )}
       </div>
@@ -197,9 +219,9 @@ function PropertiesListContent() {
       {/* Sourcing CTA Block */}
       <div className="bg-[#171717] text-[#F3F1EB] p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mt-12">
         <div className="flex flex-col gap-2 max-w-[600px]">
-          <h2 className="text-2xl md:text-3xl font-sans font-light">Need a Custom Sourcing Mandate?</h2>
+          <h2 className="text-2xl md:text-3xl font-sans font-light">Looking for Tailored Property Sourcing?</h2>
           <p className="text-sm text-gray-400 font-light leading-relaxed">
-            If our active catalog does not contain your specific project requirements, our specialists can aggregates off-market builder assets or commercial spaces suited to your portfolio.
+            As an independent real estate consultancy, we bridge investors, buyers, and premier developers. We evaluate your requirements, source verified off-market inventories, and handle title verification and registration end-to-end.
           </p>
         </div>
         <a

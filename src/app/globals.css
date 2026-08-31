@@ -136,15 +136,16 @@ html.lenis, html.lenis body {
   transition: clip-path 1.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Hide native cursor for custom cursor */
-@media (min-width: 1024px) {
-  body.custom-cursor-active {
-    cursor: none;
-  }
-  body.custom-cursor-active a,
-  body.custom-cursor-active button,
-  body.custom-cursor-active [data-cursor] {
+/* Hide native cursor when custom cursor is active on fine-pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
     cursor: none !important;
+  }
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active [contenteditable="true"] {
+    cursor: text !important;
   }
 }
 

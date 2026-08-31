@@ -303,27 +303,27 @@ export default function Home() {
   const selectedProjects = [
     {
       num: '01',
-      title: 'Casa Nera',
-      category: 'Residential Architecture',
-      location: 'Jaipur / 2026',
+      title: 'Residential Sourcing & Estates',
+      category: 'Residential Advisory',
+      location: 'Jaipur & Rajasthan',
       image: '/images/project_residence.png',
       aspect: 'aspect-[4/3]',
       width: 'md:col-span-8 md:col-start-1',
     },
     {
       num: '02',
-      title: 'Monument House',
-      category: 'Private Residence',
-      location: 'Udaipur / 2025',
+      title: 'Commercial Spaces & Retail Assets',
+      category: 'Commercial Advisory',
+      location: 'Rajasthan, India',
       image: '/images/project_interior.png',
       aspect: 'aspect-[4/5]',
       width: 'md:col-span-5 md:col-start-8',
     },
     {
       num: '03',
-      title: 'Atelier 07',
-      category: 'Commercial Interior',
-      location: 'Delhi / 2025',
+      title: 'Industrial Logistics & Agri Lands',
+      category: 'Industrial & Agri Sourcing',
+      location: 'Rajasthan Growth Belts',
       image: '/images/project_concrete.png',
       aspect: 'aspect-[16/9]',
       width: 'md:col-span-9 md:col-start-2',
@@ -331,15 +331,17 @@ export default function Home() {
   ]
 
   const horizontalProjects = [
-    { id: '01', name: 'Casa Nera', loc: 'Jaipur', year: '2026', img: '/images/project_residence.png' },
-    { id: '02', name: 'Monument House', loc: 'Udaipur', year: '2025', img: '/images/project_interior.png' },
-    { id: '03', name: 'Atelier 07', loc: 'Delhi', year: '2025', img: '/images/project_concrete.png' },
-    { id: '04', name: 'Raw Travertine', loc: 'Jaipur', year: '2026', img: '/images/project_restaurant.png' },
+    { id: '01', name: 'Luxury Residential Sourcing', loc: 'Jaipur & Rajasthan', year: 'Residential', img: '/images/project_residence.png', position: 'center' },
+    { id: '02', name: 'Industrial Warehouses & PEB Sheds', loc: 'Industrial & RIICO Corridors', year: 'Industrial', img: '/images/industrial_exterior.jpg', position: 'center' },
+    { id: '03', name: 'Agricultural Land & Farmhouse Aggregations', loc: 'Rural & Agri Belts', year: 'Agricultural', img: '/images/agriculture_golden.jpg', position: 'center 75%' },
+    { id: '04', name: 'Heavy Industrial Facilities & Sheds', loc: 'Industrial Growth Zones', year: 'Industrial', img: '/images/industrial_interior.jpg', position: 'center' },
+    { id: '05', name: 'Organic Farm & Agri-Estates', loc: 'Rajasthan Agri Zones', year: 'Agricultural', img: '/images/agriculture_green.jpg', position: 'center 85%' },
+    { id: '06', name: 'Commercial Showrooms & Offices', loc: 'Commercial Hubs', year: 'Commercial', img: '/images/project_restaurant.png', position: 'center' },
   ]
 
   const services = [
-    { num: '01', title: 'Architecture', desc: 'Sovereign structure and site integration.', img: '/images/project_residence.png' },
-    { num: '02', title: 'Interior Design', desc: 'Tactile materials, soft shadows, and light plans.', img: '/images/project_interior.png' },
+    { num: '01', title: 'Architecture & Design', desc: 'Sovereign structure and site integration.', img: '/images/project_residence.png' },
+    { num: '02', title: 'Industrial & Warehousing', desc: 'Pre-engineered PEB sheds, high-bay bays, and logistics setups.', img: '/images/industrial_interior.jpg' },
     { num: '03', title: 'Spatial Strategy', desc: 'Structured layouts and land optimization consultancies.', img: '/images/project_concrete.png' },
     { num: '04', title: 'Joint Ventures (JV)', desc: 'Strategic developer matching for landmark assets.', img: '/images/project_restaurant.png' },
     { num: '05', title: 'Corporate Advisory', desc: 'Portfolio evaluation, legal checks, and title verifications.', img: '/images/project_office.png' },
@@ -354,21 +356,21 @@ export default function Home() {
   ]
 
   const journalArticles = [
-    { num: '01', cat: 'Material Studies', date: 'AUG 2026', title: 'Honed limestone as a thermal mass stabilizer', img: '/images/material_detail.png' },
-    { num: '02', cat: 'Future Space', date: 'JUL 2026', title: 'The spatial transition of Jaipur residential villas', img: '/images/human_scale.png' },
-    { num: '03', cat: 'Spatial Light', date: 'JUN 2026', title: 'Interpreting light geometry in brutalist concrete structures', img: '/images/architectural_detail.png' },
+    { num: '01', cat: 'Agri & Farm Land', date: 'AUG 2026', title: 'Agricultural land aggregation & organic farmhouse estates in Rajasthan', img: '/images/agriculture_green.jpg', position: 'center 85%' },
+    { num: '02', cat: 'Material Studies', date: 'JUL 2026', title: 'Honed limestone as a thermal mass stabilizer', img: '/images/material_detail.png', position: 'center' },
+    { num: '03', cat: 'Industrial Scale', date: 'JUN 2026', title: 'Modular PEB engineering and industrial warehousing in Rajasthan', img: '/images/industrial_exterior.jpg', position: 'center' },
   ]
 
   const instaGrid = [
-    { img: '/images/hero_architecture.png', size: 'aspect-square' },
-    { img: '/images/project_residence.png', size: 'aspect-[3/4]' },
-    { img: '/images/project_interior.png', size: 'aspect-[4/5]' },
-    { img: '/images/project_concrete.png', size: 'aspect-square' },
-    { img: '/images/project_restaurant.png', size: 'aspect-[4/3]' },
-    { img: '/images/project_office.png', size: 'aspect-[3/4]' },
-    { img: '/images/material_detail.png', size: 'aspect-square' },
-    { img: '/images/architectural_detail.png', size: 'aspect-[4/5]' },
-    { img: '/images/human_scale.png', size: 'aspect-[3/2]' },
+    { img: '/images/hero_architecture.png', size: 'aspect-square', position: 'center' },
+    { img: '/images/industrial_exterior.jpg', size: 'aspect-[3/4]', position: 'center' },
+    { img: '/images/agriculture_golden.jpg', size: 'aspect-[4/5]', position: 'center 75%' },
+    { img: '/images/industrial_interior.jpg', size: 'aspect-square', position: 'center' },
+    { img: '/images/agriculture_green.jpg', size: 'aspect-[4/3]', position: 'center 85%' },
+    { img: '/images/project_office.png', size: 'aspect-[3/4]', position: 'center' },
+    { img: '/images/material_detail.png', size: 'aspect-square', position: 'center' },
+    { img: '/images/architectural_detail.png', size: 'aspect-[4/5]', position: 'center' },
+    { img: '/images/project_restaurant.png', size: 'aspect-[3/2]', position: 'center' },
   ]
 
   return (
@@ -419,21 +421,21 @@ export default function Home() {
             <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl">
               <Image
                 src="/images/project_residence.png"
-                alt="Casa Nera Thumbnail"
+                alt="Real Estate Advisory Thumbnail"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="flex justify-between items-center px-1">
               <div className="flex flex-col">
-                <h4 className="text-sm font-semibold tracking-tight">Casa Nera</h4>
-                <span className="text-[10px] text-neutral-400 font-medium">Residential / Jaipur</span>
+                <h4 className="text-sm font-semibold tracking-tight">Real Estate Advisory</h4>
+                <span className="text-[10px] text-neutral-400 font-medium">Residential • Commercial • Industrial • Agri</span>
               </div>
               <TransitionLink
                 href="/properties"
                 className="bg-neutral-100 hover:bg-neutral-200 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 transition-colors"
               >
-                Detail Project <span className="text-xs">→</span>
+                View Sectors <span className="text-xs">→</span>
               </TransitionLink>
             </div>
           </div>
@@ -462,11 +464,11 @@ export default function Home() {
             <div className="flex flex-col gap-2">
 
               <h2 className="text-3xl md:text-5xl font-sans font-medium tracking-tight text-[#171717]">
-                Featured Environments
+                Core Advisory Sectors
               </h2>
             </div>
             <TransitionLink href="/properties" className="text-xs uppercase tracking-wider font-semibold border-b border-[#171717] pb-1 hover:text-gray-500 hover:border-gray-500 transition-all">
-              View All Properties
+              View All Sectors
             </TransitionLink>
           </div>
 
@@ -508,8 +510,7 @@ export default function Home() {
       {/* 4. Horizontal Showcase Gallery */}
       <section className="horizontal-sec relative w-full h-auto lg:h-screen overflow-visible lg:overflow-hidden bg-[#0B0B0B] flex flex-col lg:flex-row lg:items-center py-24 lg:py-0">
         <div className="absolute top-12 left-6 lg:left-12 z-20 flex flex-col gap-1">
-          {/* <span className="text-[11px] uppercase tracking-widest text-[#F3F1EB]/50">03 — PORTFOLIO RUN</span> */}
-          <h2 className="text-xl lg:text-2xl font-sans font-light text-[#F3F1EB]">Horizontal Showcase</h2>
+          <h2 className="text-xl lg:text-2xl font-sans font-light text-[#F3F1EB]">Sector Portfolio Showcase</h2>
         </div>
         <div className="absolute top-12 right-6 lg:right-12 z-20 hidden lg:block">
           <span className="text-[11px] uppercase tracking-widest text-[#F3F1EB]/50">DRAG OR SCROLL VERTICALLY →</span>
@@ -524,12 +525,13 @@ export default function Home() {
                   src={proj.img}
                   alt={proj.name}
                   fill
+                  style={{ objectPosition: proj.position || 'center' }}
                   className="panel-img object-cover scale-[1.08] transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="flex justify-between items-start text-[#F3F1EB] border-t border-[#F3F1EB]/10 pt-4">
                 <div className="flex flex-col">
-                  <span className="text-[10px] tracking-wider text-gray-500 font-semibold">{proj.id} / PROJECT</span>
+                  <span className="text-[10px] tracking-wider text-gray-500 font-semibold">{proj.id} / SECTOR</span>
                   <h3 className="text-xl md:text-2xl font-light font-sans">{proj.name}</h3>
                 </div>
                 <div className="text-right">
@@ -883,6 +885,7 @@ export default function Home() {
                     src={post.img}
                     alt={`Realty Chamber Instagram grid ${idx}`}
                     fill
+                    style={{ objectPosition: post.position || 'center' }}
                     className="object-cover grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-[#171717]/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
