@@ -373,6 +373,35 @@ export default function Home() {
     { img: '/images/project_restaurant.png', size: 'aspect-[3/2]', position: 'center' },
   ]
 
+  const allDeveloperLogos = [
+    { name: 'Unique Builders', img: '/images/developers/unique_builders.png' },
+    { name: 'Fairmont Hotels', img: '/images/developers/fairmont.png' },
+    { name: 'Galaxy Group', img: '/images/developers/galaxy.png' },
+    { name: 'Vatika Group', img: '/images/developers/vatika.png' },
+    { name: 'Anukampa Group', img: '/images/developers/anukampa.png' },
+    { name: 'Ashiana Housing', img: '/images/developers/ashiana.png' },
+    { name: 'Chordia Group', img: '/images/developers/chordia.png' },
+    { name: 'UDB Group', img: '/images/developers/udb.png' },
+    { name: 'Ashadeep Group', img: '/images/developers/ashadeep.png' },
+    { name: 'Veto Group', img: '/images/developers/veto.png' },
+    { name: 'DMart', img: '/images/developers/dmart.png' },
+    { name: 'Hilton Hotels', img: '/images/developers/hilton.png' },
+    { name: 'Mahima Group', img: '/images/developers/mahima.png' },
+    { name: 'Jayshree Periwal', img: '/images/developers/jpgs.png' },
+    { name: 'KGB Group', img: '/images/developers/kgb.png' },
+    { name: 'Manglam Group', img: '/images/developers/manglam.png' },
+    { name: 'Akshat Group', img: '/images/developers/akshat.png' },
+    { name: 'Aashish Group', img: '/images/developers/aashish.png' },
+    { name: 'Vardhman Group', img: '/images/developers/vardhman.png' },
+    { name: 'Siddha Group', img: '/images/developers/siddha.png' },
+    { name: 'Dhanuka Infra', img: '/images/developers/dhanuka.png' },
+    { name: 'Frozen Bottle', img: '/images/developers/frozen_bottle.png' },
+    { name: 'Gulab Chand', img: '/images/developers/gulab_chand.png' },
+    { name: 'Coffee Sutra', img: '/images/developers/coffee_sutra.png' },
+    { name: 'Livspace', img: '/images/developers/livspace.png' },
+    { name: 'Chai Sutta Bar', img: '/images/developers/chai_sutta_bar.png' },
+  ]
+
   return (
     <div ref={containerRef} className="bg-[#F3F1EB] overflow-hidden">
       
@@ -456,6 +485,50 @@ export default function Home() {
           </h2>
         </div>
       </section>
+
+      {/* 2.5 Developer Collaboration Section - Static Logo Wall Grid */}
+      <section className="w-full py-20 bg-[#F3F1EB] border-t border-[rgba(23,23,23,0.08)] relative">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+          
+          {/* Section Header */}
+          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="flex flex-col gap-3">
+              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-gray-400">
+                ( COLLABORATION & PARTNERSHIPS )
+              </span>
+              <h2 className="text-3xl md:text-5xl font-sans font-medium tracking-tight text-[#171717]">
+                Collaborating with Rajasthan’s top developers.
+              </h2>
+            </div>
+            <p className="text-xs md:text-sm font-light text-gray-500 max-w-[440px] leading-relaxed">
+              Partnering with Rajasthan’s most trusted real estate pioneers, landmark builders, and infrastructure developers to curate high-yield assets and strategic JV opportunities.
+            </p>
+          </div>
+
+          {/* Compact Logo Wall Grid - All 26 Logos strictly under 4 Rows (7 columns per row) */}
+          <div className="grid grid-cols-7 gap-2 sm:gap-3 md:gap-3.5 max-w-[1250px] mx-auto w-full">
+            {allDeveloperLogos.map((dev, i) => (
+              <div
+                key={`logo-wall-${i}`}
+                className={`bg-white border border-black/5 hover:border-black/15 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300 rounded-lg sm:rounded-xl aspect-square p-2 sm:p-3 flex items-center justify-center group cursor-pointer relative overflow-hidden ${
+                  i === 21 ? 'col-start-2' : ''
+                }`}
+              >
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={dev.img}
+                    alt={dev.name}
+                    fill
+                    className="object-contain p-0.5 sm:p-1 transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
 
       {/* 3. Selected Work */}
       <section className="w-full py-24 px-6 md:px-12 bg-[#F3F1EB] border-t border-[rgba(23,23,23,0.08)]">
