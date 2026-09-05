@@ -38,7 +38,7 @@ export default function Navbar() {
     { name: 'Luxury', href: '/luxury' },
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
-    { name: 'Journal', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   const activeColorClass = (isScrolled || !isHome) ? 'text-[#171717]' : 'text-white'
@@ -50,8 +50,8 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
-          isScrolled 
-            ? 'bg-transparent py-4' 
+          (isScrolled || !isHome)
+            ? 'bg-[#F3F1EB]/95 backdrop-blur-md border-b border-[rgba(23,23,23,0.08)] py-4 shadow-sm' 
             : 'bg-transparent py-6'
         } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}
       >
@@ -97,35 +97,35 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right Side: Free Consultation pill button */}
-          <div className="hidden lg:block">
+          {/* Right Side: Free Consultation & Mobile Menu */}
+          <div className="flex items-center gap-3">
             <a
               href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20would%20like%20to%20book%20a%20free%20consultation%20regarding%20property%20in%20Jaipur."
               target="_blank"
               rel="noopener noreferrer"
-              className={`font-sans font-semibold px-6 py-2.5 rounded-full text-[12px] tracking-[0.05em] uppercase transition-all duration-300 ${
+              className={`hidden sm:inline-flex ${
                 (isScrolled || !isHome)
-                  ? 'bg-transparent text-[#171717] border border-[#171717]/30 hover:bg-[#171717]/5 shadow-none' 
-                  : 'bg-white text-black hover:bg-neutral-200 shadow-md'
+                  ? 'btn-primary px-5 py-2 sm:px-6 sm:py-2.5 text-[11px] sm:text-[12px]' 
+                  : 'btn-secondary px-5 py-2 sm:px-6 sm:py-2.5 text-[11px] sm:text-[12px]'
               }`}
             >
               Free Consultation
             </a>
-          </div>
 
-          {/* Mobile Menu Icon */}
-          <div className="lg:hidden flex items-center">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`focus:outline-none p-2 rounded-full border transition-colors ${
-                (isScrolled || !isHome)
-                  ? 'text-[#171717] border-[rgba(23,23,23,0.08)] bg-white/40' 
-                  : 'text-white border-white/10 bg-[#171717]/40'
-              }`}
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
+            {/* Mobile Menu Icon */}
+            <div className="lg:hidden flex items-center">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`focus:outline-none p-2.5 rounded-full border transition-all cursor-pointer ${
+                  (isScrolled || !isHome)
+                    ? 'bg-[#171717] text-[#F3F1EB] border-[#171717] hover:bg-[#2A2D26] shadow-sm' 
+                    : 'bg-white/90 text-[#171717] border-white hover:bg-white shadow-md'
+                }`}
+                aria-label="Toggle Menu"
+              >
+                {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
+            </div>
           </div>
 
         </div>
@@ -133,32 +133,41 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`fixed inset-0 bg-[#0B0B0B] z-40 transition-transform duration-700 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-28 ${
+        className={`fixed inset-0 bg-[#0B0B0B] z-40 transition-transform duration-700 ease-in-out lg:hidden flex flex-col justify-between p-6 sm:p-8 pt-24 sm:pt-28 overflow-y-auto ${
           mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6 sm:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-4xl font-serif italic text-white hover:text-gray-300 transition-colors duration-300"
+              className="text-3xl sm:text-4xl font-serif italic text-white hover:text-gray-300 transition-colors duration-300"
             >
               {link.name}
             </Link>
           ))}
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col gap-4">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-semibold">
+        <div className="border-t border-white/10 pt-6 flex flex-col gap-4 mt-8">
+          <a
+            href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20would%20like%20to%20book%20a%20free%20consultation%20regarding%20property%20in%20Jaipur."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary w-full py-3.5 text-center text-xs font-bold uppercase tracking-wider rounded-full shadow-lg"
+          >
+            Free Consultation on WhatsApp
+          </a>
+
+          <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-semibold mt-2">
             Confidential Enquiries
           </span>
           <div className="flex flex-col gap-2">
-            <a href="tel:+919829066382" className="text-lg font-light text-white hover:underline">
+            <a href="tel:+919829066382" className="text-base sm:text-lg font-light text-white hover:underline">
               +91 98290 66382
             </a>
-            <a href="mailto:info@realtychamber.com" className="text-lg font-light text-white hover:underline">
+            <a href="mailto:info@realtychamber.com" className="text-base sm:text-lg font-light text-white hover:underline">
               info@realtychamber.com
             </a>
           </div>

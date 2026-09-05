@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { MessageSquare, Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/WhatsAppIcon'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,8 +30,8 @@ export default function Contact() {
   }
 
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-4">
         
         {/* Header */}
         <div className="flex flex-col gap-6 max-w-[800px]">
@@ -59,12 +60,14 @@ export default function Contact() {
                   href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20have%20an%20enquiry%20regarding%20property%20in%20Jaipur."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 border border-green-500/20 bg-green-50/10 hover:bg-green-50/30 transition-all rounded"
+                  className="flex items-center gap-4 p-5 border border-emerald-500/30 bg-emerald-50/70 hover:bg-emerald-100 transition-all rounded-2xl shadow-sm cursor-pointer"
                 >
-                  <MessageSquare className="text-green-600" size={24} />
+                  <div className="p-3 bg-emerald-600 text-white rounded-full flex-shrink-0 shadow-sm flex items-center justify-center">
+                    <WhatsAppIcon size={20} className="text-white fill-current" />
+                  </div>
                   <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-green-600">Quick WhatsApp</span>
-                    <span className="text-sm font-medium">Click to chat instantly</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">Quick WhatsApp</span>
+                    <span className="text-sm font-semibold text-emerald-950">Click to chat instantly →</span>
                   </div>
                 </a>
 
@@ -194,7 +197,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#171717] text-[#F3F1EB] text-xs font-semibold uppercase tracking-widest hover:bg-gray-800 transition-colors mt-2"
+                  className="btn-primary w-full py-4 rounded-full text-xs font-bold tracking-widest mt-2"
                 >
                   Submit Mandate Enquiry
                 </button>

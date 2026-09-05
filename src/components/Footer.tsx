@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-[1600px] mx-auto flex flex-col gap-16">
         
         {/* Top Segment */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {/* Col 1: Brand Info */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -71,7 +71,7 @@ export default function Footer() {
           <div>
             <span>© {currentYear} Realty Chamber. All Rights Reserved.</span>
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-4 sm:gap-6">
             <Link href="/disclaimer" className="hover:text-[#171717] transition-colors">Disclaimer</Link>
             <Link href="/terms" className="hover:text-[#171717] transition-colors">Terms & Conditions</Link>
             <Link href="/privacy-policy" className="hover:text-[#171717] transition-colors">Privacy Policy</Link>

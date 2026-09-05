@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 export default function SellProperty() {
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
-      <div className="max-w-[1000px] mx-auto flex flex-col gap-12 mt-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
+      <div className="max-w-[1000px] mx-auto flex flex-col gap-12 mt-4">
         <span className="section-label">SERVICES / 01</span>
         <h1 className="font-sans font-bold text-4xl md:text-6xl text-[#171717] uppercase tracking-tight leading-none">
           Sell Property
@@ -41,11 +41,11 @@ export default function SellProperty() {
           </ul>
         </div>
 
-        <div className="border-t border-[rgba(23,23,23,0.08)] pt-8 flex justify-between items-center">
-          <TransitionLink href="/services" className="text-xs uppercase tracking-widest text-gray-500 hover:text-black">
+        <div className="border-t border-[rgba(23,23,23,0.08)] pt-8 flex flex-wrap gap-4 justify-between items-center">
+          <TransitionLink href="/services" className="btn-secondary px-5 py-2.5 rounded-full text-[11px] font-semibold tracking-wider">
             ← Back to Services
           </TransitionLink>
-          <TransitionLink href="/contact" className="px-6 py-3 bg-[#171717] text-[#F3F1EB] text-xs font-semibold uppercase tracking-wider hover:bg-gray-800 transition-colors">
+          <TransitionLink href="/contact" className="btn-primary px-7 py-3.5 rounded-full text-xs font-bold tracking-wider">
             Enquire to Sell
           </TransitionLink>
         </div>

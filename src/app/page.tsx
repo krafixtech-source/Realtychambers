@@ -402,7 +402,7 @@ export default function Home() {
             href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I'd%20like%20to%20book%20a%20call%20to%20discuss%20properties."
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-reveal bg-white text-black font-semibold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider hover:bg-neutral-200 transition-colors inline-flex items-center gap-2 shadow-lg"
+            className="hero-reveal bg-white text-[#171717] font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider hover:bg-[#F3F1EB] hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center gap-2 shadow-xl border border-white/20 cursor-pointer"
           >
             Book a call <span className="text-sm">→</span>
           </a>
@@ -433,7 +433,7 @@ export default function Home() {
               </div>
               <TransitionLink
                 href="/properties"
-                className="bg-neutral-100 hover:bg-neutral-200 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 transition-colors"
+                className="bg-[#171717] text-[#F3F1EB] hover:bg-[#2A2D26] hover:text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 transition-all shadow-sm cursor-pointer"
               >
                 View Sectors <span className="text-xs">→</span>
               </TransitionLink>
@@ -979,7 +979,7 @@ export default function Home() {
               </a>
             </div>
             <div>
-              <TransitionLink href="/contact" className="relative group flex items-center justify-center w-24 h-24 md:w-36 md:h-36 rounded-full border border-[#171717] text-xs font-semibold tracking-wider uppercase transition-colors hover:bg-[#171717] hover:text-[#F3F1EB]" data-cursor="OPEN">
+              <TransitionLink href="/contact" className="relative group flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-white text-[#171717] hover:bg-[#171717] hover:text-[#F3F1EB] border-2 border-[#171717] shadow-xl text-xs font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-95" data-cursor="OPEN">
                 <span className="relative z-10 flex flex-col items-center">
                   Start A Project <ArrowUpRight className="inline mt-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={16} />
                 </span>

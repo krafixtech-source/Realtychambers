@@ -51,8 +51,8 @@ export default function ServicesHub() {
   ]
 
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-4">
         
         {/* Header Block */}
         <div className="flex flex-col gap-6 max-w-[800px]">
@@ -119,8 +119,8 @@ export default function ServicesHub() {
             <p>
               Connect with our team to discuss customized real estate mandates in Rajasthan.
             </p>
-            <TransitionLink href="/contact" className="text-xs font-bold uppercase tracking-wider underline text-[#171717] mt-4 block">
-              Contact Mr. Ramlal Narwani & the team
+            <TransitionLink href="/contact" className="btn-primary px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest mt-4 inline-flex items-center justify-center gap-2 max-w-fit shadow-md transition-all">
+              Schedule Corporate Advisory Session →
             </TransitionLink>
           </div>
         </div>

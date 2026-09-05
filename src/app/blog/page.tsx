@@ -31,8 +31,8 @@ const JOURNAL_POSTS = [
 
 export default function JournalHub() {
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-4">
         
         {/* Header Block */}
         <div className="flex flex-col gap-6 max-w-[800px]">

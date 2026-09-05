@@ -8,35 +8,35 @@ const LUXURY_CATEGORIES = [
     title: 'Heritage Palaces',
     tag: 'Sovereign Restoration Mandates',
     desc: 'Sovereign Heritage estates and royal palaces with historical legacies, available under institutional restoration mandates and private acquisitions.',
-    image: '/images/hero_architecture.png',
+    image: '/images/heritage_palaces.png',
   },
   {
     id: 'forts',
     title: 'Hill Forts & Strongholds',
     tag: 'Sandstone Structures',
     desc: 'Restored hill forts, lake strongholds, and medieval defensive structures optimized for development into ultra-luxury heritage hotels and private sanctuaries.',
-    image: '/images/project_concrete.png',
+    image: '/images/hill_forts.png',
   },
   {
     id: 'hotels',
     title: 'Heritage Hotels',
     tag: 'Operating Hospitality Portfolios',
     desc: 'High-yield operating heritage hotels, boutique heritage properties, and royal havelis in Jaipur, Udaipur, and Jodhpur.',
-    image: '/images/project_restaurant.png',
+    image: '/images/heritage_hotels.png',
   },
   {
     id: 'resorts',
     title: 'Desert Oasis Resorts',
     tag: 'Wellness & Wilderness Retreats',
     desc: 'Desert oasis sanctuaries, luxury wellness resorts, and eco-friendly heritage estates designed to offer quiet contemplative luxury.',
-    image: '/images/human_scale.png',
+    image: '/images/desert_resorts.png',
   },
 ]
 
 export default function LuxuryCollection() {
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 mt-4">
         
         {/* Header Block */}
         <div className="flex flex-col gap-6 max-w-[800px]">
@@ -63,6 +63,23 @@ export default function LuxuryCollection() {
           </div>
         </div>
 
+        {/* Editorial Heritage Banner */}
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[#171717] rounded-sm shadow-md" data-cursor="VIEW">
+          <Image
+            src="/images/heritage_banner.png"
+            alt="Rajasthan Heritage Palaces & Royal Estates Banner"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/80 via-transparent to-transparent flex items-end p-8 md:p-12">
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-[#F3F1EB]/70">ROYAL LANDMARKS OF RAJASTHAN</span>
+              <h3 className="font-serif italic text-white text-2xl md:text-4xl">Sovereign Estates & Restoration Advisory</h3>
+            </div>
+          </div>
+        </div>
+
         {/* Editorial Layout of luxury categories */}
         <div className="flex flex-col gap-24">
           {LUXURY_CATEGORIES.map((cat, idx) => (
@@ -72,12 +89,12 @@ export default function LuxuryCollection() {
                 idx % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
             >
-              <div className="w-full md:w-1/2 relative aspect-[4/3] overflow-hidden bg-[#171717]" data-cursor="VIEW">
+              <div className="w-full md:w-1/2 relative aspect-[4/3] overflow-hidden bg-[#171717] rounded-sm shadow-sm" data-cursor="VIEW">
                 <Image
                   src={cat.image}
                   alt={cat.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
 
@@ -94,7 +111,7 @@ export default function LuxuryCollection() {
                   href={`https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20have%20an%20enquiry%20regarding%20${encodeURIComponent(cat.title)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-bold uppercase tracking-wider text-[#171717] hover:underline"
+                  className="btn-primary px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 max-w-fit shadow-md transition-all hover:scale-[1.02]"
                 >
                   Request Confidential Memorandum ↗
                 </a>
@@ -104,7 +121,7 @@ export default function LuxuryCollection() {
         </div>
 
         {/* Footer info note */}
-        <div className="bg-[#171717] text-[#F3F1EB] p-12 text-center flex flex-col items-center gap-6 mt-12">
+        <div className="bg-[#171717] text-[#F3F1EB] p-12 text-center flex flex-col items-center gap-6 mt-12 rounded-sm shadow-lg">
           <span className="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">Strict Confidentiality Assured</span>
           <h3 className="text-2xl font-serif italic font-light max-w-[600px] leading-snug">
             “Transactions relating to royal heritage estates are executed with strict discretion and off-market protocols.”

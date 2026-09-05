@@ -5,11 +5,11 @@ import { TransitionLink } from '@/components/PageTransition'
 
 export default function About() {
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
       <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
         
         {/* Header Block */}
-        <div className="flex flex-col gap-6 max-w-[800px] mt-12">
+        <div className="flex flex-col gap-6 max-w-[800px] mt-4">
           <span className="section-label">01 — STUDIO PROFILE</span>
           <h1 className="font-sans font-bold text-[#171717] uppercase leading-[0.95]" style={{ fontSize: 'clamp(2.5rem, 6.5vw, 6.5rem)' }}>
             WE INTEGRATE<br />HERITAGE &<br />MODERNITY.
@@ -20,12 +20,12 @@ export default function About() {
         </div>
 
         {/* Big Editorial Image Spread */}
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[#171717]">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[#171717] rounded-sm shadow-md" data-cursor="VIEW">
           <Image
-            src="/images/human_scale.png"
-            alt="Realty Chamber Jaipur Studio about page"
+            src="/images/about_office_studio.png"
+            alt="Realty Chamber Jaipur Executive Boardroom & Advisory Studio"
             fill
-            className="object-cover"
+            className="object-cover object-center transition-transform duration-700 hover:scale-105"
             priority
           />
         </div>
@@ -75,7 +75,7 @@ export default function About() {
             <span className="text-xs uppercase tracking-widest text-gray-400 font-semibold">Ready to begin?</span>
             <h3 className="text-2xl font-sans font-light text-[#171717]">Connect with Mr. Ramlal Narwani & the team.</h3>
           </div>
-          <TransitionLink href="/contact" className="px-6 py-4 bg-[#171717] text-[#F3F1EB] text-xs font-semibold uppercase tracking-widest hover:bg-gray-800 transition-colors">
+          <TransitionLink href="/contact" className="btn-primary px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest shadow-md transition-all">
             Start A Project
           </TransitionLink>
         </div>

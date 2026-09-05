@@ -3,7 +3,8 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { MessageSquare, Phone } from 'lucide-react'
+import { Phone } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/WhatsAppIcon'
 
 const PROPERTIES_DATA = [
   {
@@ -139,29 +140,28 @@ function PropertiesListContent() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="border-b border-[rgba(23,23,23,0.08)] pb-4 flex flex-wrap gap-4 md:gap-8 text-xs uppercase tracking-wider font-semibold">
+      <div className="border-b border-[rgba(23,23,23,0.08)] pb-6 flex overflow-x-auto sm:flex-wrap gap-2.5 md:gap-4 text-xs uppercase tracking-wider font-semibold no-scrollbar max-w-full">
         {categories.map((cat) => (
           <button
             key={cat.value}
             onClick={() => setCategoryFilter(cat.value)}
-            className={`pb-2 relative transition-colors duration-300 ${
-              activeCategory === cat.value ? 'text-[#171717]' : 'text-gray-400 hover:text-black'
+            className={`px-4 sm:px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer text-[11px] tracking-wider whitespace-nowrap flex-shrink-0 ${
+              activeCategory === cat.value
+                ? 'bg-[#171717] text-[#F3F1EB] shadow-md border border-[#171717]'
+                : 'bg-white text-[#171717] border border-[rgba(23,23,23,0.12)] hover:bg-[#171717] hover:text-[#F3F1EB] shadow-sm'
             }`}
           >
             {cat.label}
-            {activeCategory === cat.value && (
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#171717]" />
-            )}
           </button>
         ))}
       </div>
 
       {/* Grid List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
         {filteredProperties.length > 0 ? (
           filteredProperties.map((p) => (
-            <div key={p.id} className="flex flex-col gap-4 group bg-white border border-[rgba(23,23,23,0.04)] p-4 shadow-sm" data-cursor="VIEW">
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#171717]">
+            <div key={p.id} className="flex flex-col gap-4 group bg-white border border-[rgba(23,23,23,0.04)] p-4 shadow-sm rounded-sm" data-cursor="VIEW">
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#171717] rounded-sm">
                 <Image
                   src={p.image}
                   alt={p.title}
@@ -172,37 +172,37 @@ function PropertiesListContent() {
               </div>
 
               <div className="flex flex-col gap-3 pt-2">
-                <div className="flex justify-between items-baseline">
+                <div className="flex justify-between items-baseline gap-2">
                   <span className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">{p.type}</span>
                   <span className="text-[11px] font-semibold text-gray-500">{p.year}</span>
                 </div>
-                <h3 className="text-xl font-sans font-light text-[#171717] leading-none transition-transform group-hover:translate-x-1">
+                <h3 className="text-xl font-sans font-light text-[#171717] leading-tight transition-transform group-hover:translate-x-1">
                   {p.title}
                 </h3>
                 <span className="text-xs text-gray-400 leading-none">{p.location}</span>
                 
                 <div className="divider my-2" />
 
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-2">
                   <span className="text-sm font-semibold text-[#171717]">{p.price}</span>
                   
                   {/* Floating Action Buttons for quick connection */}
-                  <div className="flex gap-2">
+                  <div className="flex gap-2.5">
                     <a
                       href={`https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20have%20an%20enquiry%20regarding%20${encodeURIComponent(p.title)}%20in%20${encodeURIComponent(p.location)}.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 border border-green-500/20 text-green-600 rounded-full hover:bg-green-50 transition-colors"
+                      className="p-2.5 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-all shadow-sm active:scale-95 cursor-pointer flex items-center justify-center"
                       title="WhatsApp Inquiry"
                     >
-                      <MessageSquare size={16} />
+                      <WhatsAppIcon size={16} className="text-white fill-current" />
                     </a>
                     <a
                       href="tel:+919829066382"
-                      className="p-2 border border-[#171717]/10 text-[#171717] rounded-full hover:bg-gray-100 transition-colors"
+                      className="p-2.5 bg-[#171717] text-[#F3F1EB] rounded-full hover:bg-[#2A2D26] hover:text-white transition-all shadow-sm active:scale-95 cursor-pointer flex items-center justify-center"
                       title="Call Specialist"
                     >
-                      <Phone size={16} />
+                      <Phone size={16} className="text-[#F3F1EB] flex-shrink-0" />
                     </a>
                   </div>
                 </div>
@@ -217,7 +217,7 @@ function PropertiesListContent() {
       </div>
 
       {/* Sourcing CTA Block */}
-      <div className="bg-[#171717] text-[#F3F1EB] p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mt-12">
+      <div className="bg-[#171717] text-[#F3F1EB] p-8 sm:p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mt-12 rounded-sm shadow-md">
         <div className="flex flex-col gap-2 max-w-[600px]">
           <h2 className="text-2xl md:text-3xl font-sans font-light">Looking for Tailored Property Sourcing?</h2>
           <p className="text-sm text-gray-400 font-light leading-relaxed">
@@ -226,7 +226,7 @@ function PropertiesListContent() {
         </div>
         <a
           href="tel:+919829066382"
-          className="px-6 py-4 bg-[#F3F1EB] text-[#171717] text-xs font-semibold uppercase tracking-widest hover:bg-gray-200 transition-colors flex-shrink-0"
+          className="btn-light px-8 py-4 flex-shrink-0"
         >
           Consult Mr. Ramlal Narwani
         </a>
@@ -237,7 +237,7 @@ function PropertiesListContent() {
 
 export default function PropertiesList() {
   return (
-    <div className="bg-[#F3F1EB] min-h-screen py-16 px-6 md:px-12">
+    <div className="bg-[#F3F1EB] min-h-screen pt-28 pb-16 px-6 md:px-12">
       <Suspense fallback={<div className="py-24 text-center text-gray-400">Loading listings...</div>}>
         <PropertiesListContent />
       </Suspense>
