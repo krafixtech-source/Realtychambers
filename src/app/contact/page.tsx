@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/WhatsAppIcon'
+import { submitLeadToDatabaseAndW3Forms } from '@/lib/submitLead'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,9 +15,19 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulated submission success
+
+    // Submit lead to Supabase & W3Forms
+    submitLeadToDatabaseAndW3Forms({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      interest: formData.interest,
+      message: formData.message,
+      source: 'contact_page_form',
+    })
+
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)

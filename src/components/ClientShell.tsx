@@ -7,6 +7,8 @@ import { PageTransitionProvider } from './PageTransition'
 import CustomCursor from './CustomCursor'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import NewsletterModal from './NewsletterModal'
+import FloatingWhatsApp from './FloatingWhatsApp'
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -18,6 +20,8 @@ export default function ClientShell({ children }: { children: React.ReactNode })
       <SmoothScroll>
         <PageTransitionProvider>
           <CustomCursor />
+          <FloatingWhatsApp />
+          <NewsletterModal />
           <Navbar />
           <div 
             style={{
