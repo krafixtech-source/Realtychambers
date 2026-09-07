@@ -11,12 +11,12 @@ export default function NewsletterModal() {
   const [submitted, setSubmitted] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Schedule next popup 15 seconds after closing or submitting
+  // Schedule next popup 20 seconds after closing or submitting
   const scheduleNextPopup = () => {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = setTimeout(() => {
       setIsOpen(true)
-    }, 15000) // 15 seconds delay
+    }, 20000) // 20 seconds delay
   }
 
   useEffect(() => {

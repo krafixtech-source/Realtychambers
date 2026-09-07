@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TransitionLink } from '@/components/PageTransition'
+import CurvedLogoMarquee from '@/components/CurvedLogoMarquee'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -486,12 +487,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2.5 Developer Collaboration Section - Static Logo Wall Grid */}
-      <section className="w-full py-20 bg-[#F3F1EB] border-t border-[rgba(23,23,23,0.08)] relative">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+      {/* 2.5 Developer Collaboration Section - 3D Curved Logo Marquee */}
+      <section className="w-full py-16 sm:py-20 bg-[#F3F1EB] border-t border-[rgba(23,23,23,0.08)] relative overflow-hidden">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 mb-6 sm:mb-10">
           
           {/* Section Header */}
-          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="flex flex-col gap-3">
               <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-gray-400">
                 ( COLLABORATION & PARTNERSHIPS )
@@ -505,28 +506,10 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Compact Logo Wall Grid - All 26 Logos strictly under 4 Rows (7 columns per row) */}
-          <div className="grid grid-cols-7 gap-2 sm:gap-3 md:gap-3.5 max-w-[1250px] mx-auto w-full">
-            {allDeveloperLogos.map((dev, i) => (
-              <div
-                key={`logo-wall-${i}`}
-                className={`bg-white border border-black/5 hover:border-black/15 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300 rounded-lg sm:rounded-xl aspect-square p-2 sm:p-3 flex items-center justify-center group cursor-pointer relative overflow-hidden ${
-                  i === 21 ? 'col-start-2' : ''
-                }`}
-              >
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src={dev.img}
-                    alt={dev.name}
-                    fill
-                    className="object-contain p-0.5 sm:p-1 transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
+
+        {/* 3D Curved Ribbon Marquee - Moving slowly to the left */}
+        <CurvedLogoMarquee logos={allDeveloperLogos} />
       </section>
 
 
