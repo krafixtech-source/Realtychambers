@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { TransitionLink as Link } from './PageTransition'
-import { Menu, X, Landmark } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
@@ -41,7 +41,7 @@ export default function Navbar() {
     { name: 'Contact', href: '/contact' },
   ]
 
-  const activeColorClass = (isScrolled || !isHome) ? 'text-[#171717]' : 'text-white'
+  const activeColorClass = (isScrolled || !isHome || mobileMenuOpen) ? 'text-[#171717]' : 'text-white'
   const activeLinkClass = (isScrolled || !isHome)
     ? 'text-[#171717]/70 hover:text-[#171717]' 
     : 'text-white/70 hover:text-white'
@@ -50,7 +50,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
-          (isScrolled || !isHome)
+          (isScrolled || !isHome || mobileMenuOpen)
             ? 'bg-[#F3F1EB]/95 backdrop-blur-md border-b border-[rgba(23,23,23,0.08)] py-4 shadow-sm' 
             : 'bg-transparent py-6'
         } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}
@@ -62,20 +62,20 @@ export default function Navbar() {
               src="/logo.png"
               alt="Realty Chamber Logo"
               className={`w-8 h-8 object-contain rounded-full border transition-all duration-300 ${
-                (isScrolled || !isHome) ? 'border-black/10' : 'border-white/15'
+                (isScrolled || !isHome || mobileMenuOpen) ? 'border-black/10' : 'border-white/15'
               }`}
             />
             <div className="flex flex-col">
               <span className="font-sans font-bold text-sm tracking-[0.25em] uppercase">
                 REALTY CHAMBER
               </span>
-              <span className={`text-[8px] tracking-[0.1em] uppercase font-light transition-colors ${(isScrolled || !isHome) ? 'text-neutral-500' : 'text-white/50'}`}>
+              <span className={`text-[8px] tracking-[0.1em] uppercase font-light transition-colors ${(isScrolled || !isHome || mobileMenuOpen) ? 'text-neutral-500' : 'text-white/50'}`}>
                 Jaipur
               </span>
             </div>
           </Link>
 
-          {/* Center: Glassmorphism Blur Capsule Menu */}
+          {/* Center: Glassmorphism Blur Capsule Menu (Desktop Only) */}
           <div 
             className={`hidden lg:flex items-center px-6 py-2.5 rounded-full border transition-all duration-500 shadow-md ${
               (isScrolled || !isHome)
@@ -97,13 +97,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right Side: Free Consultation & Mobile Menu */}
+          {/* Right Side: Free Consultation (Desktop Only) & Mobile Menu Toggle */}
           <div className="flex items-center gap-3">
+            {/* Free Consultation Button - Hidden on Mobile, Visible on Desktop */}
             <a
               href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20would%20like%20to%20book%20a%20free%20consultation%20regarding%20property%20in%20Jaipur."
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden sm:inline-flex ${
+              className={`hidden lg:inline-flex ${
                 (isScrolled || !isHome)
                   ? 'btn-primary px-5 py-2 sm:px-6 sm:py-2.5 text-[11px] sm:text-[12px]' 
                   : 'btn-secondary px-5 py-2 sm:px-6 sm:py-2.5 text-[11px] sm:text-[12px]'
@@ -117,7 +118,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`focus:outline-none p-2.5 rounded-full border transition-all cursor-pointer ${
-                  (isScrolled || !isHome)
+                  (isScrolled || !isHome || mobileMenuOpen)
                     ? 'bg-[#171717] text-[#F3F1EB] border-[#171717] hover:bg-[#2A2D26] shadow-sm' 
                     : 'bg-white/90 text-[#171717] border-white hover:bg-white shadow-md'
                 }`}
@@ -131,43 +132,41 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Drawer - Website Cream Background (#F3F1EB) & Compact Height */}
       <div
-        className={`fixed inset-0 bg-[#0B0B0B] z-40 transition-transform duration-700 ease-in-out lg:hidden flex flex-col justify-between p-6 sm:p-8 pt-24 sm:pt-28 overflow-y-auto ${
-          mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed top-0 left-0 w-full z-40 bg-[#F3F1EB] text-[#171717] border-b border-black/15 shadow-2xl rounded-b-3xl transition-all duration-500 ease-in-out lg:hidden flex flex-col justify-between p-6 pt-24 max-h-[82vh] overflow-y-auto ${
+          mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div className="flex flex-col gap-6 sm:gap-8">
+        <div className="flex flex-col gap-3 py-2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl sm:text-4xl font-serif italic text-white hover:text-gray-300 transition-colors duration-300"
+              className="text-2xl font-sans font-medium text-[#171717] hover:text-gray-500 transition-colors duration-300 border-b border-black/5 pb-2.5 flex items-center justify-between"
             >
-              {link.name}
+              <span>{link.name}</span>
+              <span className="text-xs text-gray-400 font-mono">→</span>
             </Link>
           ))}
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col gap-4 mt-8">
+        <div className="border-t border-black/10 pt-5 flex flex-col gap-3 mt-4">
           <a
             href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20would%20like%20to%20book%20a%20free%20consultation%20regarding%20property%20in%20Jaipur."
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary w-full py-3.5 text-center text-xs font-bold uppercase tracking-wider rounded-full shadow-lg"
+            className="btn-primary w-full py-3 text-center text-xs font-bold uppercase tracking-wider rounded-xl shadow-md cursor-pointer"
           >
             Free Consultation on WhatsApp
           </a>
 
-          <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-semibold mt-2">
-            Confidential Enquiries
-          </span>
-          <div className="flex flex-col gap-2">
-            <a href="tel:+919829066382" className="text-base sm:text-lg font-light text-white hover:underline">
+          <div className="flex justify-between items-center pt-2">
+            <a href="tel:+919829066382" className="text-xs font-semibold text-[#171717] hover:underline">
               +91 98290 66382
             </a>
-            <a href="mailto:info@realtychamber.com" className="text-base sm:text-lg font-light text-white hover:underline">
+            <a href="mailto:info@realtychamber.com" className="text-xs font-semibold text-[#171717] hover:underline">
               info@realtychamber.com
             </a>
           </div>
