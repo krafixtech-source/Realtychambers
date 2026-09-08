@@ -407,4 +407,13 @@ html.lenis, html.lenis body {
   animation-play-state: paused;
 }
 
+/* Explicit Mobile Header Consultation Button Override */
+@media (max-width: 1023px) {
+  a.header-consultation-btn,
+  .header-consultation-btn {
+    display: none !important;
+  }
+}
+
+
 

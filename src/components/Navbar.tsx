@@ -99,12 +99,12 @@ export default function Navbar() {
 
           {/* Right Side: Free Consultation (Desktop Only) & Mobile Menu Toggle */}
           <div className="flex items-center gap-3">
-            {/* Free Consultation Button - Hidden on Mobile, Visible on Desktop */}
+            {/* Free Consultation Button - Strictly Hidden on Mobile (<1024px), Visible on Desktop */}
             <a
               href="https://wa.me/919829066382?text=Hello%20Realty%20Chamber,%20I%20would%20like%20to%20book%20a%20free%20consultation%20regarding%20property%20in%20Jaipur."
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden lg:inline-flex ${
+              className={`header-consultation-btn !hidden lg:!inline-flex ${
                 (isScrolled || !isHome)
                   ? 'btn-primary px-5 py-2 sm:px-6 sm:py-2.5 text-[11px] sm:text-[12px]' 
                   : 'btn-secondary px-5 py-2 sm:px-6 sm:py-2.5 text-[11px] sm:text-[12px]'
